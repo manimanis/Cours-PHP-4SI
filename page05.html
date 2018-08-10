@@ -1,0 +1,106 @@
+<html dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.10.0.custom.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.0.custom.min.js"></script>
+</head>
+
+<body class="stickytooltip">
+	<div id="contenu">
+		<div id="entete">
+			<h1>Effectuer une sélection dans la base de données</h1>
+			<h6>Cliquer sur une image pour l'agrandir</h6>
+			<h2>Sommaire</h2>
+			<ol id="sommaire">
+			</ol>
+		</div>
+		
+		<div id="navigation-bar">
+			<input type="button" id="prev" value="&lt;&lt;">
+			<span id="lblPage">Page x sur y</span>
+			<input type="button" id="next" value="&gt;&gt;">
+		</div>
+		
+		<div class="cadre">
+			<h2>Taper le code PHP complet</h2>
+			<p>
+				<a href="images/image35.jpg" class="hover"><img border="0" src="images/small/image35.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Se connecter au serveur MySQL</h2>
+			<h3>mysql_connect($host, $user, $password)</h3>
+			<h4>Paramètres</h4>
+			<p><strong>$host</strong> (chaine) : Adresse du serveur MySQL</p>
+			<p><strong>$user</strong> (chaine) : Nom de l'utilisateur</p>
+			<p><strong>$password</strong> (chaine) : Mot de passe</p>
+			<h4>Résultat</h4>
+			<p>Descripteur de connexion</p>
+			<h4>Exemple</h4>
+			<p>
+				<a href="images/image36.jpg" class="hover"><img border="0" src="images/small/image36.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Sélectionner une base de données de Travail</h2>
+			<h3>mysql_select_db($base_de_donnees)</h3>
+			<h4>Paramètres</h4>
+			<p><strong>$base_de_donnees</strong> (chaine) : Nom de la base de données de travail</p>
+			<h4>Résultat</h4>
+			<p>TRUE en cas de succès, FALSE en cas d'échec</p>
+			<h4>Exemple</h4>
+			<p>
+				<a href="images/image37.jpg" class="hover"><img border="0" src="images/small/image37.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Renvoyer une requête de sélection</h2>
+			<h3>$f = mysql_query($req)</h3>
+			<h4>Paramètres</h4>
+			<p><strong>$req</strong> (chaine) : Requête de sélection (SELECT ... FROM ...)</p>
+			<h4>Résultat</h4>
+			<p><strong>$f</strong> (resource) : Une ressource représenant l'ensemble d'enregistrements renvoyés par la requête de sélection</p>
+			<h4>Exemple</h4>
+			<p>
+				<a href="images/image38.jpg" class="hover"><img border="0" src="images/small/image38.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Tester le nombre de résultats retournés par une requête de sélection</h2>
+			<h3>$nr = mysql_num_rows($f)</h3>
+			<h4>Paramètres</h4>
+			<p><strong>$f</strong> (resource) : Une ressource représenant l'ensemble d'enregistrements renvoyés par la requête de sélection</p>
+			<h4>Résultat</h4>
+			<p><strong>$nr</strong> (entier) : Le nombre d'enregistrements renvoyés par la requête de sélection</p>
+			<h4>Exemple</h4>
+			<p>
+				<a href="images/image39.jpg" class="hover"><img border="0" src="images/small/image39.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Lire un enregistrement</h2>
+			<h3>$ligne = mysql_fetch_assoc($f)</h3>
+			<h4>Paramètres</h4>
+			<p><strong>$ligne</strong> (tableau) : Retourne un tableau associatif (l'index des éléments est le nom des champs) ou <br>FALSE si fin de fichier</p>
+			<h4>Résultat</h4>
+			<p><strong>$f</strong> (resource) : Une ressource représenant l'ensemble d'enregistrements renvoyés par la requête de sélection</p>
+			<h4>Exemple</h4>
+			<p>
+				<a href="images/image41.jpg" class="hover"><img border="0" src="images/small/image41.jpg"></a>
+			</p>
+		</div>
+		
+	</div>
+</body>
+
+<script type="text/javascript" src="navigation.js"></script>
+
+</html>

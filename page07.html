@@ -1,0 +1,153 @@
+<html dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.10.0.custom.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.0.custom.min.js"></script>
+</head>
+
+<body class="stickytooltip">
+	<div id="contenu">
+		<div id="entete">
+			<h1>Effectuer une mise à jour dans la base de données</h1>
+			<h6>Cliquer sur une image pour l'agrandir</h6>
+			<h2>Sommaire</h2>
+			<ol id="sommaire">
+			</ol>
+		</div>
+		
+		<div id="navigation-bar">
+			<input type="button" id="prev" value="&lt;&lt;">
+			<span id="lblPage">Page x sur y</span>
+			<input type="button" id="next" value="&gt;&gt;">
+		</div>
+		
+		<div class="cadre">
+			<h2>Créer le formulaire de mise à jour à l'aide de FrontPage</h2>
+			<p>Créer une page nommée <b>exercice05.php</b>.</p>
+			<p>Ouvrir à l'aide de FrontPage.</p>
+			<p>La liste de choix est vide. On va la remplir à l'aide du PHP.</p>
+			<p>Utiliser les paramètres suivants :</p>
+			<ul>
+				<li>Nom du formulaire : <b>f</b></li>
+				<li>Méthode : <b>POST</b></li>
+				<li>Action : <b>exercice05-a.php</b></li>
+			</ul>
+			<p>
+				<a href="images/image51.jpg" class="hover"><img border="0" src="images/small/image51.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Remplir la liste de choix</h2>
+			<p>Ouvrir le fichier <b>exercice05.php</b> à l'aide de Notepad++.</p>
+			<p>Ajouter le code suivant.</p>
+			<p>
+				<a href="images/image52.jpg" class="hover"><img border="0" src="images/small/image52.jpg"></a>
+			</p>
+			<p>On se connecte au serveur SGBD. Puis, on sélectionne l'ensemble de tous les plats.</p>
+			<p>La balise <b>&lt;option&gt;</b> permet d'ajouter des choix dans la liste de choix. On utilise les
+			données provenant de la requête : l'attribut <b>value</b> sera remplit avec l'identifiant de chaque
+			enregistrement <b>$ligne['id']</b>, le texte de l'option affiche le nom du plat <b>$ligne['nom plat']</b>
+			et son prix <b>$ligne['prix']</b>. 
+			</p>
+			<p>
+				<a href="images/image53.jpg" class="hover"><img border="0" src="images/small/image53.jpg"></a>
+			</p>
+			<p>Et le résultat final sera comme suit :</p>
+			<p>
+				<a href="images/image54.jpg" class="hover"><img border="0" src="images/small/image54.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Créer le fichier qui réalisera la mise à jour</h2>
+			<p>Créer une page nommée <b>exercice05-a.php</b>.</p>
+			<p>Ouvrir à l'aide du Notepad++.</p>
+			<p>Taper le code suivant :</p>
+			<p>
+				<a href="images/image55.jpg" class="hover"><img border="0" src="images/small/image55.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Vérifier que la page PHP est accédée à partir du formulaire</h2>
+			<p>L'absence d'une variable <b>$_POST</b> indique que la page n'a pas été accédé à partir du formulaire.</p>
+			<p>
+				<a href="images/image56.jpg" class="hover"><img border="0" src="images/small/image56.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Obtenir les données du formulaire</h2>
+			<p>La variable <b>id</b> du formulaire nécessite la conversion au type entier. 
+			La fonction <b>intval</b> convertit une chaine en entier.</p>
+			<p>Le prix de l'article est facultatif pour cela il ne sera pas convertit maintenant.</p>
+			<p>
+				<a href="images/image57.jpg" class="hover"><img border="0" src="images/small/image57.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Vérifier la validité des données du formulaire</h2>
+			<p>La variable <b>$id</b> ne doit pas être nulle. Les variables <b>$np</b> et <b>$pp</b> sont facultatifs.
+			Mais, elles ne doivent pas être vides toutes les deux en même temps. Puisqu'on est entrain de mettre à jour
+			un enregistrement dans la table plat au moins un des champs <b>nom_plat</b> ou <b>prix</b> doit être modifié.</p>
+			<p>Si <b>$pp</b> n'est pas vide on la convertit en réel. Puis on teste sa validité.</p>
+			<p>
+				<a href="images/image58.jpg" class="hover"><img border="0" src="images/small/image58.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Se connecter au serveur de Base de données</h2>
+			<p>Les traitements qui suivent nécessitent une connexion au SGBD.</p>
+			<p>
+				<a href="images/image59.jpg" class="hover"><img border="0" src="images/small/image59.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Récupérer les données à mettre à jour</h2>
+			<p>On récupère l'enregistrement qui a <b>$id</b> comme identifiant.</p>
+			<p>Dans le cas d'accès concurrents au site, l'enregistrement est peut être supprimé.</p>
+			<p>Si tout va bien l'enregistrement est récupéré dans un tableau nommé <b>$plat</b>.</p>
+			<p>
+				<a href="images/image60.jpg" class="hover"><img border="0" src="images/small/image60.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Vérifier l'intégrité des données à mettre à jour</h2>
+			<p>On vérifie que le nom du plat tapé par l'utilisateur et contenu dans la variable <b>$np</b> n'est pas
+			déjà associé à un autre plat.</p>
+			<p>On pourra par exemple modifier le nom de plat <b>Chapati Double</b> par <b>Chapati Simple</b> qui existe déjà.</p>
+			<p>
+				<a href="images/image61.jpg" class="hover"><img border="0" src="images/small/image61.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Préparer l'opération de mise à jour</h2>
+			<p>Les champs non vides seront mis à jour dans la variable <b>$plat</b>.</p>
+			<p>
+				<a href="images/image62.jpg" class="hover"><img border="0" src="images/small/image62.jpg"></a>
+			</p>
+		</div>
+		
+		<div class="cadre">
+			<h2>Effectuer la mise à jour</h2>
+			<p>On rappelle que la variable <b>$plat</b> contient maintenant les nouvelles données qui proviennent du formulaire.</p>
+			<p>On effectue la mise à jour. Puis on vérifie le bon déroulement de l'opération.</p>
+			<p>
+				<a href="images/image63.jpg" class="hover"><img border="0" src="images/small/image63.jpg"></a>
+			</p>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="navigation.js"></script>
+
+</html>
